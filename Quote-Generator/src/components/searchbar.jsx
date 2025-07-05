@@ -8,7 +8,6 @@ import {
 } from "@radix-ui/react-icons";
 import quotesData from "@/data/quotes.json";
 
-// Extract unique topics
 const allTopics = [
   ...new Set(quotesData.map((q) => q.topic?.toLowerCase())),
 ].filter(Boolean);
