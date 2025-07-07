@@ -9,9 +9,11 @@ import {
 import quotesData from "@/data/quotes.json";
 
 let rawTopics = [];
-for (let i = 0; i < quotesData.length; i++) {
+for (let i = 0; i < quotesData.length; i++) 
+  {
   const q = quotesData[i];
-  if (q && q.topic && typeof q.topic === "string") {
+  if (q && q.topic && typeof q.topic === "string")
+  {
     rawTopics.push(q.topic.toLowerCase());
   }
 }
@@ -23,7 +25,8 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
   const filteredTopics = [];
   for (let i = 0; i < allTopics.length; i++) {
     const t = allTopics[i];
-    if (t.includes(topic.toLowerCase()) && topic.trim() !== "") {
+    if (t.includes(topic.toLowerCase()) && topic.trim() !== "") 
+    {
       filteredTopics.push(t);
     }
     if (filteredTopics.length === 5) break;
@@ -32,7 +35,8 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
   const handleSelect = (suggestion) => {
     onChange({ target: { value: suggestion } });
     setShowSuggestions(false);
-    if (typeof onSearch === "function") {
+    if (typeof onSearch === "function")
+    {
       onSearch();
     }
   };
@@ -44,53 +48,60 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto">
-      <div className="flex items-center border border-gray-300 rounded-xl shadow-sm bg-white overflow-hidden">
-        <span className="pl-3 pr-1 text-gray-500">
-          <MagnifyingGlassIcon className="w-4 h-4" />
-        </span>
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
+        
+        <div className="flex items-center flex-grow border border-gray-300 rounded-xl shadow-sm bg-white overflow-hidden px-2">
+          <span className="text-gray-500">
+            <MagnifyingGlassIcon className="w-4 h-4" />
+          </span>
 
-        <Input
-          value={topic}
-          onChange={(e) => {
-            onChange(e);
-            setShowSuggestions(true);
-          }}
-          onKeyDown={(e) => {
-            if (e.key === "Enter") {
-              e.preventDefault();
-              if (typeof onSearch === "function") {
-                onSearch();
+          <Input
+            value={topic}
+            onChange={(e) => {
+              onChange(e);
+              setShowSuggestions(true);
+            }}
+            onKeyDown={(e) => {
+              if (e.key === "Enter")
+               {
+                e.preventDefault();
+                if (typeof onSearch === "function")
+                 {
+                  onSearch();
+                }
               }
-            }
-          }}
-          placeholder="Search topic (e.g., success, happiness, failure...)"
-          className="border-0 bg-white text-black placeholder-gray-500 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
-        />
+            }}
+            placeholder="Search topic (e.g., success, happiness, failure...)"
+            className="border-0 bg-white text-black placeholder-gray-500 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
+          />
+        </div>
 
-        {topic !== "" ? (
+        <div className="flex gap-2 justify-end sm:justify-start">
+          {topic !== "" && (
+            <Button
+              variant="outline"
+              size="icon"
+              onClick={handleClear}
+              className="bg-pink-500 text-white hover:bg-pink-600 transition"
+              title="Clear"
+            >
+              <Cross2Icon className="w-4 h-4" />
+            </Button>
+          )}
+
           <Button
-            variant="ghost"
+            onClick={onReload}
+            variant="outline"
             size="icon"
-            onClick={handleClear}
-            className="text-gray-400 hover:text-gray-600"
-            title="Clear"
+            title="Reload"
+            className="bg-pink-500 text-white hover:bg-pink-600 transition"
           >
-            <Cross2Icon className="w-4 h-4" />
+            <ReloadIcon className="w-4 h-4" />
           </Button>
-        ) : null}
-
-        <Button
-          onClick={onReload}
-          variant="ghost"
-          size="icon"
-          title="Reload"
-          className="text-gray-500 hover:text-gray-700"
-        >
-          <ReloadIcon className="w-4 h-4" />
-        </Button>
+        </div>
       </div>
 
-      {showSuggestions && filteredTopics.length > 0 ? (
+      {showSuggestions && filteredTopics.length > 0 && (
         <ul className="absolute z-50 w-full bg-white border border-gray-200 rounded-md mt-1 shadow-lg max-h-48 overflow-auto">
           {filteredTopics.map((suggestion, index) => (
             <li
@@ -102,7 +113,7 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
             </li>
           ))}
         </ul>
-      ) : null}
+      )}
     </div>
   );
 };
