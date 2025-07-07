@@ -35,7 +35,7 @@ const SearchBar = ({ topic, onChange, onReload }) => {
   return (
     <div className="relative w-full max-w-xl mx-auto">
       <div className="flex items-center border border-gray-300 rounded-xl shadow-sm bg-white overflow-hidden">
-        {/* Search Icon */}
+        
         <span className="pl-3 pr-1 text-gray-500">
           <MagnifyingGlassIcon className="w-4 h-4" />
         </span>
