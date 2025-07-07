@@ -10,9 +10,9 @@ const QuoteGenerator = () => {
   const [filteredQuotes, setFilteredQuotes] = useState([]);
   const [topic, setTopic] = useState("");
   const [finalTopic, setFinalTopic] = useState("");
-  const [isDarkMode, setIsDarkMode] = useState(() =>
-    document.documentElement.classList.contains("dark")
-  );
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    return document.documentElement.classList.contains("dark");
+  });
 
   useEffect(() => {
     setQuotes(quotesData);
@@ -26,9 +26,11 @@ const QuoteGenerator = () => {
     else 
     {
       const matches = [];
-      for (let i = 0; i < quotes.length; i++) {
+      for (let i = 0; i < quotes.length; i++) 
+        {
         const q = quotes[i];
-        if (q) {
+        if (q) 
+          {
           if (q.topic)
            {
             if (typeof q.topic === "string") 
@@ -59,7 +61,9 @@ const QuoteGenerator = () => {
       const q = quotes[i];
       if (q) {
         if (q.topic) {
-          if (typeof q.topic === "string") {
+          if (typeof q.topic === "string")
+            {
+
             if (q.topic.toLowerCase().includes(finalTopic.toLowerCase())) 
             {
               matches.push(q);
@@ -68,6 +72,7 @@ const QuoteGenerator = () => {
         }
       }
     }
+
     const shuffled = [...matches].sort(() => 0.5 - Math.random());
     const random3 = shuffled.slice(0, 3);
     setFilteredQuotes(random3);
@@ -84,7 +89,8 @@ const QuoteGenerator = () => {
           {
           if (typeof q.topic === "string") 
             {
-            if (q.topic.toLowerCase().includes(finalTopic.toLowerCase())) {
+            if (q.topic.toLowerCase().includes(finalTopic.toLowerCase())) 
+            {
               matches.push(q);
             }
           }
@@ -128,6 +134,55 @@ const QuoteGenerator = () => {
     setIsDarkMode(html.classList.contains("dark"));
   };
 
+  let themeIcon;
+  
+  if (isDarkMode)
+   {
+    themeIcon = <Sun className="w-5 h-5" />;
+   } 
+     else 
+     {
+       themeIcon = <Moon className="w-5 h-5" />;
+     }
+
+  let contentToRender;
+
+  if (finalTopic.trim() === "") 
+    {
+    contentToRender = (
+      <p className="col-span-full text-center text-gray-600 dark:text-gray-400 italic text-lg mt-10">
+        Start by entering a topic or selecting one from suggestions ✨
+      </p>
+    );
+  }
+  
+  else 
+  {
+    if (filteredQuotes.length === 0)
+     {
+      contentToRender = (
+        <p className="col-span-full text-center text-gray-500 dark:text-gray-400 italic text-lg mt-10">
+          No quotes found for <span className="font-semibold">{finalTopic}</span> 😕
+        </p>
+      );
+    } 
+
+    else 
+    {
+      const cards = filteredQuotes.map((quote, i) => {
+        return (
+          <QuoteCard
+            key={i}
+            quote={quote}
+            onTweet={() => handleTweet(quote)}
+            onReload={() => reloadSingleQuote(i)}
+          />
+        );
+      });
+      contentToRender = cards;
+    }
+  }
+
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 dark:from-zinc-900 dark:to-zinc-950 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.05] pointer-events-none" />
@@ -139,13 +194,14 @@ const QuoteGenerator = () => {
             onClick={toggleDarkMode}
             className="bg-pink-500 hover:bg-pink-600 text-white rounded-full shadow-md transition-transform hover:scale-105"
           >
-            {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+            {themeIcon}
           </Button>
         </div>
 
-        <h1 className="text-4xl sm:text-5xl font-extrabold text-center mt-14 mb-10 px-4 text-gray-800 dark:text-gray-100">
-          🌸 The Quote Vault
-        </h1>
+       <h1
+        className="text-4xl sm:text-5xl font-extrabold text-center mt-14 mb-10 px-4 text-gray-800 dark:text-zinc-200">
+         🌸 The Quote Vault
+       </h1>
 
         <div className="w-[90%] max-w-lg mb-12">
           <SearchBar
@@ -157,24 +213,7 @@ const QuoteGenerator = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-6 pb-20">
-          {finalTopic.trim() === "" ? (
-            <p className="col-span-full text-center text-gray-600 dark:text-gray-400 italic text-lg mt-10">
-              Start by entering a topic or selecting one from suggestions ✨
-            </p>
-          ) : filteredQuotes.length === 0 ? (
-            <p className="col-span-full text-center text-gray-500 dark:text-gray-400 italic text-lg mt-10">
-              No quotes found for <span className="font-semibold">{finalTopic}</span> 😕
-            </p>
-          ) : (
-            filteredQuotes.map((quote, i) => (
-              <QuoteCard
-                key={i}
-                quote={quote}
-                onTweet={() => handleTweet(quote)}
-                onReload={() => reloadSingleQuote(i)}
-              />
-            ))
-          )}
+          {contentToRender}
         </div>
       </div>
     </div>
