@@ -64,16 +64,15 @@ const QuoteGenerator = () => {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 relative overflow-hidden">
-      {/* Optional soft noise background for texture */}
+     
       <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.08] z-0 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
-        {/* Heading */}
+       
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 text-center mt-14 mb-10 px-4 drop-shadow-sm">
           🌸 Inspirational Quote Generator
         </h1>
 
-        {/* Search bar */}
         <div className="w-[90%] max-w-lg mb-12">
           <SearchBar
             topic={topic}
@@ -82,7 +81,6 @@ const QuoteGenerator = () => {
           />
         </div>
 
-        {/* Quotes Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full px-6 pb-20">
           {topic.trim() === "" ? (
             <p className="col-span-full text-center text-gray-600 italic text-lg mt-10">
