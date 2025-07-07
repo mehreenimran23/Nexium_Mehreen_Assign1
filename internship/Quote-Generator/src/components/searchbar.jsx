@@ -18,19 +18,13 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
   const filteredTopics = allTopics
-    .filter(
-      (t) => t.includes(topic.toLowerCase()) && topic.trim() !== ""
-    )
+    .filter((t) => t.includes(topic.toLowerCase()) && topic.trim() !== "")
     .slice(0, 5);
 
   const handleSelect = (suggestion) => {
     onChange({ target: { value: suggestion } });
     setShowSuggestions(false);
-    
-    if (typeof onSearch === "function")
-     {
-      onSearch();
-    }
+    if (typeof onSearch === "function") onSearch();
   };
 
   const handleClear = () => {
@@ -40,13 +34,13 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto">
-      <div className="flex flex-col sm:flex-row items-center gap-2">
+      
+      <div className="flex items-center gap-2 w-full">
         
-        <div className="relative flex-grow w-full">
-          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500">
+        <div className="relative flex-grow">
+          <span className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none">
             <MagnifyingGlassIcon className="w-5 h-5" />
           </span>
-
           <Input
             value={topic}
             onChange={(e) => {
@@ -54,30 +48,24 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
               setShowSuggestions(true);
             }}
             onKeyDown={(e) => {
-
-              if (e.key === "Enter")
-               {
+              if (e.key === "Enter") {
                 e.preventDefault();
-                if (typeof onSearch === "function")
-                {
-                  onSearch();
-                }
+                if (typeof onSearch === "function") onSearch();
               }
             }}
 
-            placeholder="Search topic (e.g., success, happiness, failure...)"
+            placeholder="Search topic (e.g., success, happiness...)"
             className="w-full pl-10 pr-3 bg-white text-black placeholder-gray-500 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
           />
         </div>
 
-       
-        <div className="flex gap-1 shrink-0">
+        <div className="flex items-center gap-1">
           {topic !== "" && (
             <Button
               variant="ghost"
               size="icon"
               onClick={handleClear}
-              className="text-gray-500 hover:text-black"
+              className="text-gray-500 hover:text-black p-2 sm:p-2"
               title="Clear"
             >
               <Cross2Icon className="w-4 h-4" />
@@ -89,14 +77,14 @@ const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
             variant="ghost"
             size="icon"
             title="Reload"
-            className="text-gray-500 hover:text-black"
+            className="text-gray-500 hover:text-black p-2 sm:p-2"
           >
             <ReloadIcon className="w-4 h-4" />
           </Button>
         </div>
       </div>
 
-    
+      
       {showSuggestions && filteredTopics.length > 0 && (
         <ul className="absolute z-50 w-full bg-white border border-gray-200 rounded-md mt-1 shadow-lg max-h-48 overflow-auto">
           {filteredTopics.map((suggestion, index) => (
