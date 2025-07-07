@@ -135,7 +135,7 @@ const QuoteGenerator = () => {
   };
 
   let themeIcon;
-  
+
   if (isDarkMode)
    {
     themeIcon = <Sun className="w-5 h-5" />;
@@ -200,7 +200,7 @@ const QuoteGenerator = () => {
 
        <h1
         className="text-4xl sm:text-5xl font-extrabold text-center mt-14 mb-10 px-4 text-gray-800 dark:text-zinc-200">
-         🌸 The Quote Vault
+         🌸The Quote Vault
        </h1>
 
         <div className="w-[90%] max-w-lg mb-12">
