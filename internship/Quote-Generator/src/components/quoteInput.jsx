@@ -10,7 +10,7 @@ const QuoteInput = ({ topic, onChange, onReload }) => {
         value={topic}
         onChange={onChange}
         placeholder="Enter a topic (e.g. success, love, life)"
-        className="h-10 text-base bg-white"
+        className="h-10 text-base !bg-white !text-black placeholder-gray-500 focus-visible:ring-0 focus-visible:ring-offset-0 border border-gray-300 shadow-none [&_input]:!bg-white [&_input]:!text-black"
       />
       <Button
         onClick={onReload}

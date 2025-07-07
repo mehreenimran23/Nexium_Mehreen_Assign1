@@ -1,8 +1,32 @@
-
 [
   {
     "text": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
     "author": "Winston Churchill",
+    "topic": "success"
+  },
+  {
+    "text": "Quality is not an act, it is a habit.",
+    "author": "Aristotle",
+    "topic": "success"
+  },
+  {
+    "text": "Success usually comes to those who are too busy to be looking for it.",
+    "author": "Henry David Thoreau",
+    "topic": "success"
+  },
+  {
+    "text": "Success is how high you bounce when you hit bottom.",
+    "author": "George S. Patton",
+    "topic": "success"
+  },
+  {
+    "text": "Don't aim for success if you want it; just do what you love and believe in, and it will come naturally.",
+    "author": "David Frost",
+    "topic": "success"
+  },
+  {
+    "text": "To succeed in life, you need two things: ignorance and confidence.",
+    "author": "Mark Twain",
     "topic": "success"
   },
   {
@@ -11,18 +35,88 @@
     "topic": "motivation"
   },
   {
-    "text": "In the middle of every difficulty lies opportunity.",
-    "author": "Albert Einstein",
-    "topic": "life"
-  },
-  {
     "text": "Don't watch the clock; do what it does. Keep going.",
     "author": "Sam Levenson",
     "topic": "motivation"
   },
   {
+    "text": "Start where you are. Use what you have. Do what you can.",
+    "author": "Arthur Ashe",
+    "topic": "motivation"
+  },
+  {
+    "text": "The only way to do great work is to love what you do.",
+    "author": "Steve Jobs",
+    "topic": "motivation"
+  },
+  {
+    "text": "Push yourself, because no one else is going to do it for you.",
+    "author": "Unknown",
+    "topic": "motivation"
+  },
+  {
+    "text": "Dream big and dare to fail.",
+    "author": "Norman Vaughan",
+    "topic": "motivation"
+  },
+  {
+    "text": "In the middle of every difficulty lies opportunity.",
+    "author": "Albert Einstein",
+    "topic": "life"
+  },
+  {
+    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
+    "author": "C.S. Lewis",
+    "topic": "life"
+  },
+  {
+    "text": "Life is really simple, but we insist on making it complicated.",
+    "author": "Confucius",
+    "topic": "life"
+  },
+  {
+    "text": "Life is either a daring adventure or nothing at all.",
+    "author": "Helen Keller",
+    "topic": "life"
+  },
+  {
+    "text": "The purpose of life is a life of purpose.",
+    "author": "Robert Byrne",
+    "topic": "life"
+  },
+  {
+    "text": "Life itself is the most wonderful fairy tale.",
+    "author": "Hans Christian Andersen",
+    "topic": "life"
+  },
+  {
     "text": "Believe you can and you're halfway there.",
     "author": "Theodore Roosevelt",
+    "topic": "inspiration"
+  },
+  {
+    "text": "Act as if what you do makes a difference. It does.",
+    "author": "William James",
+    "topic": "inspiration"
+  },
+  {
+    "text": "Keep your face always toward the sunshine—and shadows will fall behind you.",
+    "author": "Walt Whitman",
+    "topic": "inspiration"
+  },
+  {
+    "text": "What lies behind us and what lies before us are tiny matters compared to what lies within us.",
+    "author": "Ralph Waldo Emerson",
+    "topic": "inspiration"
+  },
+  {
+    "text": "You are never too old to set another goal or to dream a new dream.",
+    "author": "C.S. Lewis",
+    "topic": "inspiration"
+  },
+  {
+    "text": "Your time is limited, so don’t waste it living someone else’s life.",
+    "author": "Steve Jobs",
     "topic": "inspiration"
   },
   {
@@ -31,39 +125,34 @@
     "topic": "dreams"
   },
   {
+    "text": "All our dreams can come true, if we have the courage to pursue them.",
+    "author": "Walt Disney",
+    "topic": "dreams"
+  },
+  {
+    "text": "Dream big dreams! Imagine that you have no limitations and then decide what's right before you decide what's possible.",
+    "author": "Brian Tracy",
+    "topic": "dreams"
+  },
+  {
+    "text": "You have to dream before your dreams can come true.",
+    "author": "A. P. J. Abdul Kalam",
+    "topic": "dreams"
+  },
+  {
+    "text": "Dreams are today's answers to tomorrow's questions.",
+    "author": "Edgar Cayce",
+    "topic": "dreams"
+  },
+  {
+    "text": "Do not follow where the path may lead. Go instead where there is no path and leave a trail.",
+    "author": "Ralph Waldo Emerson",
+    "topic": "dreams"
+  },
+  {
     "text": "It does not matter how slowly you go as long as you do not stop.",
     "author": "Confucius",
     "topic": "growth"
-  },
-  {
-    "text": "Act as if what you do makes a difference. It does.",
-    "author": "William James",
-    "topic": "inspiration"
-  },
-  {
-    "text": "Quality is not an act, it is a habit.",
-    "author": "Aristotle",
-    "topic": "success"
-  },
-  {
-    "text": "Hardships often prepare ordinary people for an extraordinary destiny.",
-    "author": "C.S. Lewis",
-    "topic": "life"
-  },
-  {
-    "text": "Start where you are. Use what you have. Do what you can.",
-    "author": "Arthur Ashe",
-    "topic": "motivation"
-  },
-  {
-    "text": "Keep your face always toward the sunshine—and shadows will fall behind you.",
-    "author": "Walt Whitman",
-    "topic": "inspiration"
-  },
-  {
-    "text": "Success usually comes to those who are too busy to be looking for it.",
-    "author": "Henry David Thoreau",
-    "topic": "success"
   },
   {
     "text": "If you want to lift yourself up, lift up someone else.",
@@ -71,8 +160,113 @@
     "topic": "growth"
   },
   {
-    "text": "The only way to do great work is to love what you do.",
-    "author": "Steve Jobs",
-    "topic": "motivation"
+    "text": "Growth is never by mere chance; it is the result of forces working together.",
+    "author": "James Cash Penney",
+    "topic": "growth"
+  },
+  {
+    "text": "We can’t become what we need to be by remaining what we are.",
+    "author": "Oprah Winfrey",
+    "topic": "growth"
+  },
+  {
+    "text": "The key to growth is the introduction of higher dimensions of consciousness into our awareness.",
+    "author": "Lao Tzu",
+    "topic": "growth"
+  },
+  {
+    "text": "Be not afraid of growing slowly, be afraid only of standing still.",
+    "author": "Chinese Proverb",
+    "topic": "growth"
+  },
+  {
+    "text": "Love is composed of a single soul inhabiting two bodies.",
+    "author": "Aristotle",
+    "topic": "love"
+  },
+  {
+    "text": "Where there is love there is life.",
+    "author": "Mahatma Gandhi",
+    "topic": "love"
+  },
+  {
+    "text": "To love and be loved is to feel the sun from both sides.",
+    "author": "David Viscott",
+    "topic": "love"
+  },
+  {
+    "text": "The best thing to hold onto in life is each other.",
+    "author": "Audrey Hepburn",
+    "topic": "love"
+  },
+  {
+    "text": "Love recognizes no barriers. It jumps hurdles, leaps fences, penetrates walls to arrive at its destination full of hope.",
+    "author": "Maya Angelou",
+    "topic": "love"
+  },
+  {
+    "text": "Being deeply loved by someone gives you strength, while loving someone deeply gives you courage.",
+    "author": "Lao Tzu",
+    "topic": "love"
+  },
+  {
+    "text": "Happiness depends upon ourselves.",
+    "author": "Aristotle",
+    "topic": "happiness"
+  },
+  {
+    "text": "The purpose of our lives is to be happy.",
+    "author": "Dalai Lama",
+    "topic": "happiness"
+  },
+  {
+    "text": "Happiness is not something ready-made. It comes from your own actions.",
+    "author": "Dalai Lama",
+    "topic": "happiness"
+  },
+  {
+    "text": "For every minute you are angry you lose sixty seconds of happiness.",
+    "author": "Ralph Waldo Emerson",
+    "topic": "happiness"
+  },
+  {
+    "text": "Happiness is a warm puppy.",
+    "author": "Charles M. Schulz",
+    "topic": "happiness"
+  },
+  {
+    "text": "Happiness is not in the mere possession of money; it lies in the joy of achievement.",
+    "author": "Franklin D. Roosevelt",
+    "topic": "happiness"
+  },
+  {
+    "text": "A woman is the full circle. Within her is the power to create, nurture and transform.",
+    "author": "Diane Mariechild",
+    "topic": "women"
+  },
+  {
+    "text": "The best protection any woman can have is courage.",
+    "author": "Elizabeth Cady Stanton",
+    "topic": "women"
+  },
+  {
+    "text": "There is no limit to what we, as women, can accomplish.",
+    "author": "Michelle Obama",
+    "topic": "women"
+  },
+  {
+    "text": "A strong woman stands up for herself. A stronger woman stands up for everyone else.",
+    "author": "Unknown",
+    "topic": "women"
+  },
+  {
+    "text": "Here's to strong women: May we know them. May we be them. May we raise them.",
+    "author": "Unknown",
+    "topic": "women"
+  },
+  {
+    "text": "Think like a queen. A queen is not afraid to fail. Failure is another steppingstone to greatness.",
+    "author": "Oprah Winfrey",
+    "topic": "women"
   }
 ]

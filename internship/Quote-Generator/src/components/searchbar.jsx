@@ -8,23 +8,33 @@ import {
 } from "@radix-ui/react-icons";
 import quotesData from "@/data/quotes.json";
 
-const allTopics = [
-  ...new Set(quotesData.map((q) => q.topic?.toLowerCase())),
-].filter(Boolean);
+let rawTopics = [];
+for (let i = 0; i < quotesData.length; i++) {
+  const q = quotesData[i];
+  if (q && q.topic && typeof q.topic === "string") {
+    rawTopics.push(q.topic.toLowerCase());
+  }
+}
+const allTopics = [...new Set(rawTopics)];
 
-const SearchBar = ({ topic, onChange, onReload }) => {
+const SearchBar = ({ topic, onChange, onReload, onSearch }) => {
   const [showSuggestions, setShowSuggestions] = useState(false);
 
-  const filteredTopics = allTopics
-    .filter(
-      (t) =>
-        t.includes(topic.toLowerCase()) && topic.trim() !== ""
-    )
-    .slice(0, 5);
+  const filteredTopics = [];
+  for (let i = 0; i < allTopics.length; i++) {
+    const t = allTopics[i];
+    if (t.includes(topic.toLowerCase()) && topic.trim() !== "") {
+      filteredTopics.push(t);
+    }
+    if (filteredTopics.length === 5) break;
+  }
 
   const handleSelect = (suggestion) => {
     onChange({ target: { value: suggestion } });
     setShowSuggestions(false);
+    if (typeof onSearch === "function") {
+      onSearch();
+    }
   };
 
   const handleClear = () => {
@@ -35,7 +45,6 @@ const SearchBar = ({ topic, onChange, onReload }) => {
   return (
     <div className="relative w-full max-w-xl mx-auto">
       <div className="flex items-center border border-gray-300 rounded-xl shadow-sm bg-white overflow-hidden">
-        
         <span className="pl-3 pr-1 text-gray-500">
           <MagnifyingGlassIcon className="w-4 h-4" />
         </span>
@@ -46,11 +55,19 @@ const SearchBar = ({ topic, onChange, onReload }) => {
             onChange(e);
             setShowSuggestions(true);
           }}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") {
+              e.preventDefault();
+              if (typeof onSearch === "function") {
+                onSearch();
+              }
+            }
+          }}
           placeholder="Search topic (e.g., success, happiness, failure...)"
-          className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 flex-1 bg-white text-base"
+          className="border-0 bg-white text-black placeholder-gray-500 text-base focus-visible:ring-0 focus-visible:ring-offset-0"
         />
 
-        {topic && (
+        {topic !== "" ? (
           <Button
             variant="ghost"
             size="icon"
@@ -60,9 +77,8 @@ const SearchBar = ({ topic, onChange, onReload }) => {
           >
             <Cross2Icon className="w-4 h-4" />
           </Button>
-        )}
+        ) : null}
 
-       
         <Button
           onClick={onReload}
           variant="ghost"
@@ -74,8 +90,7 @@ const SearchBar = ({ topic, onChange, onReload }) => {
         </Button>
       </div>
 
-    
-      {showSuggestions && filteredTopics.length > 0 && (
+      {showSuggestions && filteredTopics.length > 0 ? (
         <ul className="absolute z-50 w-full bg-white border border-gray-200 rounded-md mt-1 shadow-lg max-h-48 overflow-auto">
           {filteredTopics.map((suggestion, index) => (
             <li
@@ -87,7 +102,7 @@ const SearchBar = ({ topic, onChange, onReload }) => {
             </li>
           ))}
         </ul>
-      )}
+      ) : null}
     </div>
   );
 };
