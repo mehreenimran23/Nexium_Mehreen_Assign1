@@ -57,9 +57,17 @@ const QuoteGenerator = () => {
 
   return (
     <div className="min-h-screen w-full bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 relative overflow-hidden">
+<<<<<<< HEAD
       <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.08] z-0 pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
+=======
+     
+      <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.08] z-0 pointer-events-none" />
+
+      <div className="relative z-10 flex flex-col items-center">
+       
+>>>>>>> f12fd863ab94cd6cb1761670176afa233d5d67aa
         <h1 className="text-4xl sm:text-5xl font-extrabold text-gray-800 text-center mt-14 mb-10 px-4 drop-shadow-sm">
           🌸 Inspirational Quote Generator
         </h1>
