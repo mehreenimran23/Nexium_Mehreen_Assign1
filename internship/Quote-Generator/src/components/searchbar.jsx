@@ -40,7 +40,6 @@ const SearchBar = ({ topic, onChange, onReload }) => {
           <MagnifyingGlassIcon className="w-4 h-4" />
         </span>
 
-        {/* Input Field */}
         <Input
           value={topic}
           onChange={(e) => {
@@ -51,7 +50,6 @@ const SearchBar = ({ topic, onChange, onReload }) => {
           className="border-0 focus-visible:ring-0 focus-visible:ring-offset-0 flex-1 bg-white text-base"
         />
 
-        {/* Clear Button */}
         {topic && (
           <Button
             variant="ghost"
@@ -64,7 +62,7 @@ const SearchBar = ({ topic, onChange, onReload }) => {
           </Button>
         )}
 
-        {/* Reload Button */}
+       
         <Button
           onClick={onReload}
           variant="ghost"
@@ -76,7 +74,7 @@ const SearchBar = ({ topic, onChange, onReload }) => {
         </Button>
       </div>
 
-      {/* Suggestions Dropdown */}
+    
       {showSuggestions && filteredTopics.length > 0 && (
         <ul className="absolute z-50 w-full bg-white border border-gray-200 rounded-md mt-1 shadow-lg max-h-48 overflow-auto">
           {filteredTopics.map((suggestion, index) => (
