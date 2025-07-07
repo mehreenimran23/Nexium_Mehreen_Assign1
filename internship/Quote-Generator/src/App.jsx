@@ -184,11 +184,12 @@ const QuoteGenerator = () => {
   }
 
   return (
-    <div className="min-h-screen w-full bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 dark:from-zinc-900 dark:to-zinc-950 relative overflow-hidden">
+    <div className="min-h-screen w-full bg-gradient-to-br from-indigo-100 via-purple-100 to-pink-100 dark:from-[#0d1117] dark:to-[#161b22] relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-[0.05] pointer-events-none" />
 
       <div className="relative z-10 flex flex-col items-center">
         <div className="absolute top-4 right-4">
+          
           <Button
             size="icon"
             onClick={toggleDarkMode}
